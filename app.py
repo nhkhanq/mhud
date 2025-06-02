@@ -440,3 +440,10 @@ def ask():
 # === 13. Chạy app ===
 if __name__ == "__main__":
     app.run(debug=True)
+
+
+from werkzeug.middleware.proxy_fix import ProxyFix
+app.wsgi_app = ProxyFix(app.wsgi_app)
+
+def handler(request, response):
+    return app(request.environ, response)
