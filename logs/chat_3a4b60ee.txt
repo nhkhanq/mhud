@@ -1,0 +1,149 @@
+[2025-06-02 21:26:24] === NEW SESSION ===
+[2025-06-02 21:27:32] USER: Xin chào
+[2025-06-02 21:27:32] USER: Xin chào
+[2025-06-02 21:27:36] ASSISTANT: Chào bạn! 😊 Mình là bác sĩ dinh dưỡng AI, hôm nay đồng hành cùng bạn nè! Bạn dạo này thấy sức khỏe ổn không? Hay bạn đang có mục tiêu gì không – tăng cân, giảm cân hay chỉ muốn duy trì thôi?
+[2025-06-02 21:30:19] USER: Có tôi muốn giảm cân
+[2025-06-02 21:30:19] USER: Có tôi muốn giảm cân
+[2025-06-02 21:30:21] ASSISTANT: Rất tuyệt, mình sẽ giúp bạn trên hành trình giảm cân này! Để bắt đầu, mình có thể biết tuổi của bạn trước được không nè?
+[2025-06-02 21:30:28] USER: 42 tuổi
+[2025-06-02 21:30:28] USER: 42 tuổi
+[2025-06-02 21:30:32] ASSISTANT: Cảm ơn bạn đã chia sẻ! Giờ mình muốn hỏi thêm một chút nữa. Bạn cao tầm bao nhiêu cm ha?
+[2025-06-02 21:31:37] USER: 155
+[2025-06-02 21:31:37] USER: 155
+[2025-06-02 21:31:39] ASSISTANT: Ok, để mình ghi lại chiều cao của bạn nhé! Giờ mình cần biết cân nặng của bạn là bao nhiêu kg nè?
+[2025-06-02 21:32:07] USER: 120kg
+[2025-06-02 21:32:07] USER: 120kg
+[2025-06-02 21:32:10] ASSISTANT: Mình đã ghi lại cân nặng của bạn rồi! Giờ mình muốn hỏi bạn một chút về thói quen ăn uống nhé. Bạn có thường xuyên ăn rau không? Bạn có thể cho mình biết mức độ ăn rau của bạn từ 1 đến 3 nha: 
+- 1 là không ăn,
+- 2 là thỉnh thoảng,
+- 3 là luôn luôn. 
+
+Bạn chọn mức nào?
+[2025-06-02 21:32:30] USER: 1
+[2025-06-02 21:32:30] USER: 1
+[2025-06-02 21:32:32] ASSISTANT: Cảm ơn bạn đã chia sẻ về thói quen ăn uống! Giờ mình muốn hỏi thêm về giới tính của bạn, bạn có thể cho mình biết bạn là nam hay nữ không nè?
+[2025-06-02 21:32:49] USER: Nữ
+[2025-06-02 21:32:49] USER: Nữ
+[2025-06-02 21:32:52] ASSISTANT: Cảm ơn bạn đã chia sẻ! Tiếp theo, mình muốn hỏi về bữa chính trong ngày của bạn. Bạn có thường xuyên ăn bao nhiêu bữa chính mỗi ngày? Ít nhất là 1 bữa nhé!
+[2025-06-02 21:33:15] USER: 4
+[2025-06-02 21:33:15] USER: 4
+[2025-06-02 21:33:20] ASSISTANT: Cảm ơn bạn đã chia sẻ! Giờ mình muốn hỏi về thói quen tập thể dục của bạn. Bạn có thường xuyên tập thể dục không? Nếu có, bạn tập bao nhiêu ngày trong một tuần? (0 đến 7 ngày nhé!)
+[2025-06-02 21:33:34] USER: 0
+[2025-06-02 21:33:34] USER: 0
+[2025-06-02 21:33:38] ASSISTANT: Cảm ơn bạn đã chia sẻ! Giờ mình muốn hỏi thêm về thói quen uống nước của bạn. Bạn có thể cho mình biết bạn uống khoảng bao nhiêu lít nước mỗi ngày không nè? (Nhớ là phải lớn hơn 0 lít nhé!)
+[2025-06-02 21:33:54] USER: 1
+[2025-06-02 21:33:54] USER: 1
+[2025-06-02 21:34:01] ASSISTANT: Cảm ơn bạn đã chia sẻ! Giờ mình muốn hỏi một chút về thói quen ăn vặt của bạn. Bạn có thường xuyên ăn vặt không? Bạn có thể cho mình biết mức độ ăn vặt của bạn từ 0 đến 3 nha: 
+- 0 là không ăn vặt,
+- 1 là thỉnh thoảng,
+- 2 là thường xuyên,
+- 3 là rất thường xuyên. 
+
+Bạn chọn mức nào?
+[2025-06-02 21:34:22] USER: 3
+[2025-06-02 21:34:22] USER: 3
+[2025-06-02 21:34:26] ASSISTANT: Cảm ơn bạn đã chia sẻ về thói quen ăn vặt! Giờ mình muốn hỏi thêm một chút về thói quen uống rượu bia của bạn. Bạn có thường xuyên uống rượu bia không? Bạn có thể cho mình biết mức độ từ 0 đến 3 nha:
+- 0 là không uống,
+- 1 là thỉnh thoảng,
+- 2 là thường xuyên,
+- 3 là rất thường xuyên.
+
+Bạn chọn mức nào?
+[2025-06-02 21:34:43] USER: 3
+[2025-06-02 21:34:43] USER: 3
+[2025-06-02 21:34:47] ASSISTANT: Cảm ơn bạn đã chia sẻ! Giờ mình muốn hỏi về tiền sử gia đình một chút. Trong gia đình bạn có ai từng gặp vấn đề về thừa cân không? Bạn có thể trả lời là "Có" hoặc "Không" nhé!
+[2025-06-02 21:35:04] USER: Có
+[2025-06-02 21:35:04] USER: Có
+[2025-06-02 21:35:08] ASSISTANT: Cảm ơn bạn đã chia sẻ! Giờ mình muốn hỏi thêm một chút về thói quen uống rượu bia của bạn. Bạn có thường xuyên uống rượu bia không? Bạn có thể cho mình biết mức độ từ 0 đến 3 nha:
+- 0 là không uống,
+- 1 là thỉnh thoảng,
+- 2 là thường xuyên,
+- 3 là rất thường xuyên.
+
+Bạn chọn mức nào?
+[2025-06-02 21:35:30] USER: 3
+[2025-06-02 21:35:30] USER: 3
+[2025-06-02 21:35:36] ASSISTANT: Cảm ơn bạn đã chia sẻ! Giờ mình muốn hỏi về phương tiện di chuyển của bạn. Bạn thường sử dụng phương tiện nào để di chuyển? Bạn có thể chọn từ các lựa chọn sau: 
+- Đi bộ
+- Xe đạp
+- Xe máy
+- Phương tiện công cộng
+- Ô tô
+
+Bạn thường đi bằng phương tiện nào?
+[2025-06-02 21:36:02] USER: Mình thường di chuyển bằng **ô tô**. Mình ít đi bộ hay vận động ngoài trời, chủ yếu ngồi xe khi đi làm hoặc đi chơi nên cũng ít có cơ hội đốt cháy năng lượng qua việc di chuyển.
+[2025-06-02 21:36:02] USER: Mình thường di chuyển bằng **ô tô**. Mình ít đi bộ hay vận động ngoài trời, chủ yếu ngồi xe khi đi làm hoặc đi chơi nên cũng ít có cơ hội đốt cháy năng lượng qua việc di chuyển.
+[2025-06-02 21:36:06] ASSISTANT: Cảm ơn bạn đã chia sẻ về phương tiện di chuyển! Giờ mình muốn hỏi thêm một chút về thói quen ăn uống nữa. Bạn có thích ăn đồ ăn nhiều calo không? Bạn có thể trả lời "Có" hoặc "Không" nhé!
+[2025-06-02 21:36:12] USER: Có
+[2025-06-02 21:36:12] USER: Có
+[2025-06-02 21:36:17] ASSISTANT: Cảm ơn bạn đã chia sẻ! Giờ mình muốn hỏi thêm một chút về thói quen ghi chép calo hàng ngày của bạn. Bạn có thường xuyên ghi lại lượng calo bạn tiêu thụ mỗi ngày không? Bạn có thể trả lời "Có" hoặc "Không" nhé!
+[2025-06-02 21:36:36] USER: Dạ **cũng có**. Gần đây mình bắt đầu chú ý hơn nên có thử ghi lại lượng calo tiêu thụ mỗi ngày, nhưng chưa duy trì đều đặn lắm. Mình hy vọng việc này sẽ giúp mình kiểm soát ăn uống tốt hơn.
+[2025-06-02 21:36:36] USER: Dạ **cũng có**. Gần đây mình bắt đầu chú ý hơn nên có thử ghi lại lượng calo tiêu thụ mỗi ngày, nhưng chưa duy trì đều đặn lắm. Mình hy vọng việc này sẽ giúp mình kiểm soát ăn uống tốt hơn.
+[2025-06-02 21:36:41] ASSISTANT: Cảm ơn bạn đã chia sẻ! Giờ mình chỉ còn một câu hỏi nhỏ nữa thôi. Bạn có hút thuốc không? Bạn có thể trả lời "Có" hoặc "Không" nhé!
+[2025-06-02 21:36:46] USER: Có
+[2025-06-02 21:36:46] USER: Có
+[2025-06-02 21:36:50] ASSISTANT: Cảm ơn bạn đã chia sẻ tất cả thông tin! Mình đã ghi nhận được rất nhiều điều hữu ích từ bạn. Hiện tại, mình vẫn cần biết thêm một chút về thời gian bạn sử dụng thiết bị mỗi ngày. Bạn có thể cho mình biết bạn dành khoảng bao nhiêu giờ cho thiết bị mỗi ngày không? (Nhớ là phải lớn hơn hoặc bằng 0 giờ nhé!)
+[2025-06-02 21:36:59] USER: 22 giờ
+[2025-06-02 21:36:59] USER: 22 giờ
+[2025-06-02 21:37:04] ASSISTANT: Cảm ơn bạn đã chia sẻ tất cả thông tin! Giờ mình đã có đủ dữ liệu rồi. Nếu bạn sẵn sàng, hãy gõ **phân tích** để mình giúp bạn xem kết quả và nhận lời khuyên cá nhân hóa nhé!
+[2025-06-02 21:37:09] USER: phân tích
+[2025-06-02 21:37:12] ASSISTANT: 📝 **Tóm tắt thông tin bạn đã cung cấp:**
+- Giới tính: Female
+- Tuổi: 42
+- Chiều cao: 155
+- Cân nặng: 120
+- Tiền sử thừa cân gia đình: Có
+- Thích đồ calo cao: Có
+- Mức độ ăn rau (1-3): 1
+- Bữa chính/ngày: 4
+- Mức độ ăn vặt (0-3): 3
+- Hút thuốc: Có
+- Lượng nước (lít/ngày): 1.0
+- Ghi chép calo: Có
+- Ngày tập/tuần: 0
+- Giờ dùng thiết bị/ngày: 22
+- Mức độ uống rượu/bia (0-3): 3
+- Phương tiện di chuyển: Car
+
+Nếu bạn muốn điều chỉnh bất kỳ thông tin nào, vui lòng nhập lại giá trị tương ứng.
+Nếu mọi thứ đã đúng, bạn gõ **xác nhận** để mình tiến hành phân tích nhé!
+[2025-06-02 21:37:19] USER: xác nhận
+[2025-06-02 21:37:22] MODEL_INPUT: {'Gender': 'Female', 'Age': 42, 'Height': 155, 'Weight': 120, 'family_history_with_overweight': 'Yes', 'FAVC': 'Yes', 'FCVC': 1, 'NCP': 4, 'CAEC': 3, 'SMOKE': 'Yes', 'CH2O': 1.0, 'SCC': 'Yes', 'FAF': 0, 'TUE': 22, 'CALC': 3, 'MTRANS': 'Car'}
+[2025-06-02 21:37:22] PREDICTED_LABEL: 3
+[2025-06-02 21:37:32] ASSISTANT: 📊 **Kết quả**
+
+Bạn thuộc nhóm **3**.
+
+Chào bạn! 😊 Dưới đây là những thông tin hữu ích cho bạn ở nhóm **3** (BMI —) với mục tiêu duy trì lối sống lành mạnh:
+
+### 1. Giải thích ngắn gọn
+Bạn ở nhóm này do chỉ số BMI cho thấy bạn có trọng lượng cơ thể đang ở mức độ không đạt yêu cầu hoặc nguy cơ sức khỏe tiềm ẩn. Điều này có thể ảnh hưởng đến sức khỏe tổng thể của bạn.
+
+### 2. 3 thói quen cần áp dụng ngay
+① **Uống đủ nước**: Hãy uống ít nhất 2-2.5 lít nước mỗi ngày. 💧  
+② **Ăn thực phẩm giàu chất xơ**: Bổ sung rau xanh và trái cây vào chế độ ăn hàng ngày. 🥦🍎  
+③ **Ngủ đủ giấc**: Cố gắng ngủ từ 7-8 tiếng mỗi đêm để phục hồi và tái tạo năng lượng. 💤  
+
+### 3. Thực đơn gợi ý 1 ngày (kèm kcal)
+- **Bữa sáng**: 1 bát yến mạch nấu với sữa, thêm 1 quả chuối (350 kcal) 🍌
+- **Bữa trưa**: 100g ức gà nướng, 150g rau củ hấp, 1 chén cơm (500 kcal) 🍗🥗
+- **Bữa tối**: 150g cá hồi nướng, 200g khoai lang luộc (450 kcal) 🐟🍠
+- **Bữa phụ sáng**: 1 hũ sữa chua không đường (100 kcal) 🥣
+- **Bữa phụ chiều**: 1 nắm hạt hỗn hợp (150 kcal) 🥜
+
+**Tổng: 1650 kcal** 
+
+### 4. Lịch tập 7 ngày mức độ vừa
+- **Ngày 1**: 30 phút đi bộ nhanh 🚶‍♂️
+- **Ngày 2**: 20 phút chạy bộ nhẹ 🏃‍♀️
+- **Ngày 3**: 30 phút yoga 🧘‍♀️
+- **Ngày 4**: 25 phút đạp xe 🚴‍♂️
+- **Ngày 5**: 30 phút bơi lội 🏊‍♀️
+- **Ngày 6**: 30 phút đi bộ nhanh 🚶‍♂️
+- **Ngày 7**: Nghỉ ngơi hoặc 20 phút giãn cơ 🧘‍♂️
+
+### 5. Cách tự theo dõi tiến trình & mốc tái khám
+- **Theo dõi**: Ghi chép thực phẩm và hoạt động hàng ngày vào ứng dụng hoặc nhật ký. 📓
+- **Mốc tái khám**: Kiểm tra chỉ số BMI và sức khỏe định kỳ 3 tháng/lần. 🩺
+
+Hãy bắt đầu ngay hôm nay để có một lối sống lành mạnh hơn! 🌟

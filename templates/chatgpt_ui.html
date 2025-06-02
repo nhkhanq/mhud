@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chat Bác sĩ AI</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- marked.js để parse Markdown -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <!-- FontAwesome cho icon -->
+  <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.2/css/all.css">
+
+  <!-- Thay font Inter bằng Noto Sans từ Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+
+  <style>
+    /* ------------------------------------------------------------
+       Đảm bảo toàn bộ trang chiếm đủ chiều cao và có flex layout
+    ------------------------------------------------------------ */
+    html,
+    body {
+      height: 100%;
+      scrollbar-width: thin;
+      scrollbar-color: #555 transparent;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      /* Chuyển sang Noto Sans toàn trang */
+      font-family: 'Noto Sans', sans-serif;
+      display: flex;
+      flex-direction: column;
+      background-color: #202123;
+      /* giữ nguyên màu nền tối */
+    }
+
+    /* ------------------------------------------------------------
+       Tùy chỉnh scrollbar (giữ nguyên từ bản gốc)
+    ------------------------------------------------------------ */
+    *::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    *::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    *::-webkit-scrollbar-thumb {
+      background-color: #444;
+      border-radius: 4px;
+    }
+
+    *::-webkit-scrollbar-thumb:hover {
+      background-color: #666;
+    }
+
+    /* ------------------------------------------------------------
+       Cấu hình cho textarea tự co dãn
+    ------------------------------------------------------------ */
+    .auto-resize {
+      overflow-y: auto;
+      resize: none;
+      max-height: 200px;
+    }
+
+    /* ------------------------------------------------------------
+       Style cho nội dung markdown
+    ------------------------------------------------------------ */
+    .markdown p {
+      margin-bottom: 0.5rem;
+    }
+
+    .markdown pre {
+      background: #2c2d2f;
+      padding: 0.75rem;
+      border-radius: 0.375rem;
+      overflow-x: auto;
+    }
+
+    .markdown code {
+      background: #2c2d2f;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+
+    .markdown ul {
+      list-style-type: disc;
+      padding-left: 1.25rem;
+    }
+
+    /* ------------------------------------------------------------
+       Style cho input-wrapper (viền gradient khi focus)
+    ------------------------------------------------------------ */
+    .input-wrapper {
+      position: relative;
+      border-radius: 0.75rem;
+      overflow: hidden;
+    }
+
+    .input-wrapper::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 0.75rem;
+      pointer-events: none;
+      border: 2px solid transparent;
+      background: linear-gradient(to right, #facc15, #ec4899) border-box;
+      -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0;
+      transition: opacity 0.6s ease, filter 0.6s ease;
+      z-index: 1;
+      filter: blur(1.2px);
+    }
+
+    .input-wrapper:focus-within::after {
+      opacity: 0.6;
+    }
+
+    /* ------------------------------------------------------------
+       Chỉnh lại #greeting-section để nằm giữa phần trên của chat
+       (loại bỏ position:absolute, dùng flex để căn giữa)
+    ------------------------------------------------------------ */
+    #greeting-section {
+      flex: 1;
+      /* Chiếm toàn bộ khoảng trống có sẵn bên trên */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 1rem;
+      /* Thêm khoảng đệm hai bên */
+      z-index: 5;
+      opacity: 1;
+    }
+
+    .fade-out {
+      animation: fadeOut 0.5s ease-out forwards;
+    }
+
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+      }
+    }
+
+    .letter {
+      opacity: 0;
+      display: inline-block;
+      animation: fadeInLetter 0.5s forwards;
+    }
+
+    @keyframes fadeInLetter {
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* ------------------------------------------------------------
+       GIẢM 15% so với kích thước gốc:
+       - Gốc: 2.5rem  →  2.125rem  (2.5 × 0.85)
+       - Gốc: 1.25rem →  1.0625rem (1.25 × 0.85)
+    ------------------------------------------------------------ */
+    #animated-heading {
+      font-size: 2.125rem;
+      /* Giảm 15% so với 2.5rem */
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.5px;
+    }
+
+    #greeting-message {
+      font-size: 1.0625rem;
+      /* Giảm 15% so với 1.25rem */
+      margin-top: 0.5rem;
+      white-space: pre-wrap;
+      font-weight: 500;
+      color: #d1d5db;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Container chính (flex-col, chiếm hết height của body) -->
+  <div class="flex flex-col flex-1 overflow-hidden">
+    <!-- Header -->
+    <header
+      class="px-4 py-3 border-b border-[#2c2d2f] flex items-center justify-between sticky top-0 bg-[#202123] z-10">
+      <div class="flex items-center text-[0.92rem] font-semibold leading-none ml-1">
+        <i class="fa-regular fa-pen-to-square 
+              text-[1rem] align-middle 
+              bg-gradient-to-r from-yellow-400 to-pink-500 
+              text-transparent bg-clip-text 
+              cursor-pointer hover:opacity-80 mr-2" onclick="location.reload();" title="Tải lại trang"></i>
+        <span class="text-gray-400 font-semibold">DoctorAI</span>
+      </div>
+    </header>
+
+    <!-- Main: chia làm 3 phần theo chiều dọc
+         1) Greeting (chiếm khoảng trống trên cùng)
+         2) Chat messages (chiều cao tự động, scrolling)
+         3) Input (luôn sticky bên dưới) -->
+    <main class="flex flex-col flex-1 w-full overflow-hidden">
+      <!-- Greeting: sẽ luôn nằm chính giữa chiều dọc trong phần trống trên chat -->
+      <div id="greeting-section" class="px-4">
+        <div class="text-center max-w-xl">
+          <h2 id="animated-heading"></h2>
+          <p id="greeting-message"></p>
+        </div>
+      </div>
+
+      <!-- Chat container: khi greeting được ẩn, chat-inner sẽ lấp đầy khoảng trống này -->
+      <div id="chat-container" class="flex-1 overflow-y-auto scroll-smooth pl-4 pr-0 flex flex-col items-center">
+        <div class="w-full flex justify-center">
+          <div id="chat-inner" class="w-full max-w-2xl flex flex-col pt-4 pb-6 space-y-3"></div>
+        </div>
+      </div>
+
+      <!-- Chat input (luôn sticky ở dưới) -->
+      <div class="px-4 pb-4 sticky bottom-0 bg-[#202123] z-10 flex justify-center">
+        <div class="chat-input-container relative w-full max-w-2xl">
+          <div class="input-wrapper bg-[#343541] p-4 min-h-[105px] flex relative z-10">
+            <textarea id="chat-input" rows="1" placeholder="Hỏi bác sĩ AI"
+              class="chat-input auto-resize bg-transparent focus:outline-none text-sm text-white placeholder-gray-400 w-full pr-12 pb-10"></textarea>
+            <button id="send-button"
+              class="absolute bottom-4 right-4 bg-gradient-to-r from-orange-500 to-pink-500 text-black rounded-full w-9 h-9 flex items-center justify-center hover:opacity-90">
+              <i id="send-icon" class="fa-solid fa-lightbulb-on text-sm" style="color: #ffffff;"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Script (giữ nguyên logic gốc, chỉ tương tác DOM) -->
+  <script>
+    const greetingSection = document.getElementById("greeting-section");
+    const animatedHeading = document.getElementById("animated-heading");
+    const greetingMessage = document.getElementById("greeting-message");
+
+    const obesityPrompts = [
+      "Bạn đang tìm cách thay đổi vóc dáng ngay hôm nay?",
+      "Bác sĩ AI có thể giúp bạn khỏe hơn từng ngày!",
+      "Đừng đợi thêm, hỏi ngay để cải thiện sức khỏe!",
+      "Muốn giảm cân hiệu quả và an toàn? Hỏi ngay!",
+      "Hành trình khỏe mạnh bắt đầu bằng một tin nhắn!"
+    ];
+
+    const renderGreeting = () => {
+      const helloText = "Hello, ";
+      const userText = "Tân";
+
+      animatedHeading.innerHTML = "";
+
+      const helloSpan = document.createElement("span");
+      helloSpan.className = "bg-gradient-to-r from-yellow-400 via-orange-500 to-orange-600 text-transparent bg-clip-text font-bold";
+      helloSpan.textContent = helloText;
+      animatedHeading.appendChild(helloSpan);
+
+      const nameSpan = document.createElement("span");
+      nameSpan.className = "bg-gradient-to-r from-orange-500 via-pink-500 to-pink-600 text-transparent bg-clip-text font-bold";
+      nameSpan.textContent = userText;
+      animatedHeading.appendChild(nameSpan);
+
+      const randomText = obesityPrompts[Math.floor(Math.random() * obesityPrompts.length)];
+      greetingMessage.innerHTML = "";
+
+      [...randomText].forEach((char, i) => {
+        const span = document.createElement("span");
+        span.classList.add("letter");
+        span.style.animationDelay = `${i * 0.03}s`;
+        span.textContent = char;
+        greetingMessage.appendChild(span);
+      });
+    };
+
+    window.addEventListener("DOMContentLoaded", renderGreeting);
+
+    const textarea = document.getElementById("chat-input");
+    const sendButton = document.getElementById("send-button");
+    const chatContainer = document.getElementById("chat-container");
+    const chatInner = document.getElementById("chat-inner");
+    const icon = document.getElementById("send-icon");
+
+    const autoResize = () => {
+      textarea.style.height = "auto";
+      textarea.style.height = Math.min(textarea.scrollHeight, 200) + "px";
+    };
+
+    const addMessage = (role, content) => {
+      const wrapper = document.createElement("div");
+      wrapper.className = `w-full flex ${role === "user" ? "justify-end" : "justify-start"}`;
+      const bubble = document.createElement("div");
+
+      bubble.className =
+        role === "user"
+          ? "bg-[#3c3f4a] px-4 py-2 rounded-2xl rounded-br-none max-w-[75%] text-sm"
+          : "bg-[#2a2b2e] px-4 py-2 rounded-2xl rounded-tl-none max-w-[75%] text-sm markdown";
+
+      const parsedContent = role === "bot"
+        ? marked.parse(content)
+        : content.replace(/\n/g, "<br>");
+
+      bubble.innerHTML = parsedContent;
+      wrapper.appendChild(bubble);
+      chatInner.appendChild(wrapper);
+      chatContainer.scrollTop = chatContainer.scrollHeight;
+    };
+
+    const sendMessage = async () => {
+      const message = textarea.value.trim();
+      if (!message) return;
+
+      if (greetingSection) {
+        greetingSection.classList.add("fade-out");
+        setTimeout(() => {
+          greetingSection.style.display = "none";
+        }, 500);
+      }
+
+      addMessage("user", message);
+      textarea.value = "";
+      autoResize();
+      icon.className = "fa-solid fa-lightbulb-on text-sm";
+
+      try {
+        const res = await fetch("/ask", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message })
+        });
+        const data = await res.json();
+        addMessage("bot", data.reply || "❗ Có lỗi xảy ra, vui lòng thử lại.");
+      } catch (err) {
+        addMessage("bot", "❗ Không thể kết nối tới máy chủ.");
+      }
+    };
+
+    textarea.addEventListener("input", () => {
+      icon.className = textarea.value.trim()
+        ? "fa-solid fa-arrow-up text-base"
+        : "fa-solid fa-lightbulb-on text-sm";
+      autoResize();
+    });
+
+    textarea.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" && !e.shiftKey) {
+        e.preventDefault();
+        sendMessage();
+      }
+    });
+
+    sendButton.addEventListener("click", sendMessage);
+    autoResize();
+  </script>
+</body>
+
+</html>

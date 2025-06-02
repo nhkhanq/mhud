@@ -1,0 +1,4 @@
+[2025-06-02 16:39:37] === NEW SESSION ===
+[2025-06-02 16:40:00] USER: Xin chào
+[2025-06-02 16:40:00] USER: Xin chào
+[2025-06-02 16:40:03] ASSISTANT: Chào bạn! 😊 Mình là bác sĩ dinh dưỡng AI, hôm nay đồng hành cùng bạn nè! Bạn dạo này thấy sức khỏe ổn không? Hay bạn đang có mục tiêu gì đặc biệt nào – tăng cân, giảm cân hay chỉ muốn duy trì sức khỏe thôi?

@@ -1,0 +1,17 @@
+python -m venv .venv
+
+.venv\Scripts\activate
+
+pip install joblib pandas scikit-learn
+
+pip freeze > requirements.txt
+
+
+
+# Máy khác chạy dự án:
+# Khang:
+# Thanh:
+python -m venv .venv
+.venv\Scripts\activate
+pip install -r requirements.txt
+python app.py
